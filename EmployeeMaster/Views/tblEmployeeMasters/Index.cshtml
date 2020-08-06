@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EmployeeMaster.Models.tblEmployeeMaster>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Employees Detils</h3>
+
+<hr />
+<a class="btn btn-success" style="margin-bottom:10px" onclick="location.href='@Url.Action("Create", "tblEmployeeMasters")'"><i class="glyphicon glyphicon-plus"></i>  Create New Employee</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Last_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDepartment.DepartmentName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.First_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Last_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblDepartment.DepartmentName)
+        </td>
+        <td>
+
+            <a class="btn btn-primary right" onclick="location.href='@Url.Action("Details", "tblEmployeeMasters", new { id = item.EmployeeId })'"><i class="glyphicon glyphicon-eye-open"></i>  Delete</a>
+            <a class="btn btn-success right" onclick="location.href='@Url.Action("Edit", "tblEmployeeMasters", new { id = item.EmployeeId })'"><i class="glyphicon glyphicon-pencil"></i>  Edit</a>
+            <a class="btn btn-danger right" onclick="location.href='@Url.Action("Delete", "tblEmployeeMasters", new { id = item.EmployeeId })'"><i class="glyphicon glyphicon-trash"></i>  Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

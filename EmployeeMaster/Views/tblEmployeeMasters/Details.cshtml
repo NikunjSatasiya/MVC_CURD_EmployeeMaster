@@ -1,0 +1,55 @@
+﻿@model EmployeeMaster.Models.tblEmployeeMaster
+
+@{
+    ViewBag.Title = "Vew Employee Details";
+}
+
+<h3>Employee Details</h3>
+
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6 col-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Field Name
+                        </th>
+                        <th>
+                            Value
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.First_Name)</td>
+                        <td>@Html.DisplayFor(model => model.First_Name)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Last_Name)</td>
+                        <td>@Html.DisplayFor(model => model.Last_Name)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Age)</td>
+                        <td>@Html.DisplayFor(model => model.Age)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Salary)</td>
+                        <td>@Html.DisplayFor(model => model.Salary)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.tblDepartment.DepartmentName)</td>
+                        <td>@Html.DisplayFor(model => model.tblDepartment.DepartmentName)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr />
+</div>
+
+<p>
+    <a class="btn btn-success right" onclick="location.href='@Url.Action("Edit", "tblEmployeeMasters", new { id = Model.EmployeeId })'"><i class="glyphicon glyphicon-pencil"></i>  Edit</a>
+    <a class="btn btn-default right" onclick="location.href='@Url.Action("Index", "tblEmployeeMasters")'"><i class="glyphicon glyphicon-backward"></i>  Go Back</a>
+</p>
